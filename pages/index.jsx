@@ -1,7 +1,8 @@
-import { Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import NavBar from "../components/NavBar";
 import styles from "../styles/index.module.css";
+import { Typography, Paper, Breadcrumbs } from "@mui/material";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 
 export default function OzicPay() {
   return (
@@ -20,8 +21,15 @@ export default function OzicPay() {
           }}
         >
           <Paper elevation={3} className={styles.location}>
-            <h2>대시보드</h2>
-            <p>홈 / 대시보드</p>
+            <Typography variant="h5">대시보드</Typography>
+            <Breadcrumbs aria-label="breadcrumb">
+              <Typography variant="h7" gutterBottom>
+                홈
+              </Typography>
+              <Typography variant="h7">
+                <DashboardIcon /> 대시보드
+              </Typography>
+            </Breadcrumbs>
           </Paper>
         </Box>
       </main>
@@ -30,7 +38,6 @@ export default function OzicPay() {
       main {
         padding: 24px;
         background: rgb(238, 238, 238);
-      }
       }
       `}
       </style>

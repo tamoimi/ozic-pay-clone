@@ -8,7 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function NavBar() {
+const NavBar = () => {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -20,6 +20,7 @@ export default function NavBar() {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
+              
             >
               <MenuIcon />
             </IconButton>
@@ -50,4 +51,6 @@ export default function NavBar() {
       </style>
     </>
   );
-}
+};
+
+export default NavBar;

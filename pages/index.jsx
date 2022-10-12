@@ -1,38 +1,40 @@
-import { Box } from "@mui/system";
 import NavBar from "../components/NavBar";
-import styles from "../styles/index.module.css";
-import { Typography, Paper, Breadcrumbs } from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
+import LocationDash from "../components/LocationDash";
+import SummaryDash from "../components/SummaryDash";
+import { useState } from "react";
+import { Drawer } from "@mui/material";
+import Divider from "@mui/material";
+import IconButton from "@mui/material";
+import List from "@mui/material";
+import MenuList from "@mui/material";
+import { Calendar } from "../components/Calendar";
 
 export default function OzicPay() {
+  // const [open, setOpen] = useState(true);
+  // const handleDrawerOpen = () => {
+  //   setOpen(true);
+  // };
+  // const handleDrawerClose = () => {
+  //   setOpen(false);
+  // };
   return (
     <>
       <NavBar />
+      <Drawer>
+        <div>
+          <IconButton></IconButton>
+        </div>
+        <Divider />
+        <List>
+          <MenuList />
+        </List>
+      </Drawer>
       <main>
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            "& > :not(style)": {
-              m: 1,
-              width: 500,
-              height: 96,
-            },
-          }}
-        >
-          <Paper elevation={3} className={styles.location}>
-            <Typography variant="h5">대시보드</Typography>
-            <Breadcrumbs aria-label="breadcrumb">
-              <Typography variant="h7" gutterBottom>
-                홈
-              </Typography>
-              <Typography variant="h7">
-                <DashboardIcon /> 대시보드
-              </Typography>
-            </Breadcrumbs>
-          </Paper>
-        </Box>
+        <LocationDash />
+        <SummaryDash />
+        <Calendar />
       </main>
+
       <style>
         {`
       main {

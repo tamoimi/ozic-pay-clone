@@ -1,6 +1,8 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import { Typography, Paper, Grid } from "@mui/material";
+import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
+import SavingsIcon from "@mui/icons-material/Savings";
 
 // const Item = styled(Paper)(({ theme }) => ({
 //   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -25,12 +27,18 @@ const SummaryDash = () => {
           <Grid item xs>
             {/* {?}월 로 바꿔야함 */}
             <Typography>10월 매출 금액</Typography>
+            <Typography>0원</Typography>
+            <PointOfSaleIcon />
           </Grid>
           <Grid item xs>
             <Typography>입금 예정 금액</Typography>
+            <Typography>0원</Typography>
+            <SavingsIcon />
           </Grid>
           <Grid item xs>
             <Typography>오늘 입금된 금액</Typography>
+            <Typography>0원</Typography>
+            <SavingsIcon />
           </Grid>
         </Grid>
       </Paper>

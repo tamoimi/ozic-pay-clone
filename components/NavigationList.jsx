@@ -13,7 +13,7 @@ import CalculateIcon from "@mui/icons-material/Calculate";
 import Link from "next/link";
 
 const NavigationList = () => {
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState();
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -68,7 +68,7 @@ const NavigationList = () => {
           <Divider />
           {/* 정산 */}
           <ListSubheader>정산</ListSubheader>
-          <Link href="/">
+          <Link href="/Settlements">
             <a>
               <ListItemButton
                 selected={selectedIndex === 2}

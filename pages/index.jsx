@@ -1,39 +1,25 @@
-import NavBar from "../components/NavBar";
 import LocationDash from "../components/LocationDash";
 import SummaryDash from "../components/SummaryDash";
-import { useState } from "react";
-import { Drawer } from "@mui/material";
-import Divider from "@mui/material";
-import IconButton from "@mui/material";
-import List from "@mui/material";
-import MenuList from "@mui/material";
 import { Calendar } from "../components/Calendar";
+import NavBar from "../components/NavBar";
+import NavigationList from "../components/NavigationList";
 
-export default function OzicPay() {
-  // const [open, setOpen] = useState(true);
-  // const handleDrawerOpen = () => {
-  //   setOpen(true);
-  // };
-  // const handleDrawerClose = () => {
-  //   setOpen(false);
-  // };
+const OzicPay = () => {
   return (
     <>
-      <NavBar />
-      <Drawer>
-        <div>
-          <IconButton></IconButton>
+      <container>
+        <div className="layout1">
+          <NavigationList />
         </div>
-        <Divider />
-        <List>
-          <MenuList />
-        </List>
-      </Drawer>
-      <main>
-        <LocationDash />
-        <SummaryDash />
-        <Calendar />
-      </main>
+        <div className="layout2">
+          <NavBar />
+          <main>
+            <LocationDash />
+            <SummaryDash />
+            <Calendar />
+          </main>
+        </div>
+      </container>
 
       <style>
         {`
@@ -41,8 +27,19 @@ export default function OzicPay() {
         padding: 24px;
         background: rgb(238, 238, 238);
       }
+      container {
+        width: 100%;
+        display: flex;
+      }
+      .layout1 {
+        flex: 1;
+      }
+      .layout2 {
+        flex: 6;
+      }
       `}
       </style>
     </>
   );
-}
+};
+export default OzicPay;

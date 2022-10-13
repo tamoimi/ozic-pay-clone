@@ -8,19 +8,11 @@ import { useRouter } from "next/router";
 const OzicPay = () => {
   return (
     <>
-      <section>
-        <div className="layout1">
-          
-        </div>
-        <div className="layout2">
-          
-          <main>
-            <LocationDash />
-            <SummaryDash />
-            <Calendar />
-          </main>
-        </div>
-      </section>
+      <main>
+        <LocationDash />
+        <SummaryDash />
+        <Calendar />
+      </main>
 
       <style>
         {`

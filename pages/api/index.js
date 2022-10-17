@@ -32,7 +32,7 @@ export const getTodayStatistics = async (searchDate) => {
 export const getDailyStatistics = async (searchDate) => {
   const url = `${process.env.NEXT_PUBLIC_BASE_URL}/dashboard/dailyStatistics`;
   const params = {
-    searchYearMonth: format(seatchDate, "yyyy-MM"),
+    searchYearMonth: format(searchDate, "yyyy-MM"),
   };
   const {
     data: { content },
@@ -45,7 +45,6 @@ export const getDailyStatistics = async (searchDate) => {
         "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjA1NjQ5MSwiaWF0IjoxNjY1OTcwMDkxfQ.Pp8UMHFB4q2H5YQm8mzwF1866VVqKK0tyUMN_SSPtNk",
     },
   });
-  console.log(" 하단 캘린더 조회 결과", content);
   return content;
 };
 

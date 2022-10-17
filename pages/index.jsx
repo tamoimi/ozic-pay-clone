@@ -2,6 +2,7 @@ import LocationDash from "../components/LocationDash";
 import SummaryDash from "../components/SummaryDash";
 import { Calendar } from "../components/Calendar/Calendar";
 import { useState } from "react";
+import { Prac } from "../components/Prac";
 
 const OzicPay = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -14,6 +15,7 @@ const OzicPay = () => {
           currentMonth={currentMonth}
           setCurrentMonth={setCurrentMonth}
         />
+        <Prac/>
       </main>
 
       <style>

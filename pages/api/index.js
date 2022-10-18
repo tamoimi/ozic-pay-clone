@@ -1,5 +1,5 @@
 import format from "date-fns/format";
-import axios from "axios";
+import Axios from "axios";
 
 // SummaryDash data
 // 대시보드 상단 내 상점 현황 데이터를 가져올것
@@ -13,13 +13,13 @@ export const getTodayStatistics = async (searchDate) => {
   console.log({ params });
   const {
     data: { content },
-  } = await axios({
+  } = await Axios({
     url: url,
     method: "POST",
     data: params,
     headers: {
       Authorization:
-        "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjA1NjQ5MSwiaWF0IjoxNjY1OTcwMDkxfQ.Pp8UMHFB4q2H5YQm8mzwF1866VVqKK0tyUMN_SSPtNk",
+        "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjE0MzUxMywiaWF0IjoxNjY2MDU3MTEzfQ.0zzqRep0hDHw6PAU5DRFktRzNFaOweShPyyvQ9BjaP8",
     },
   });
   console.log("조회 결과 백단", content);
@@ -36,24 +36,37 @@ export const getDailyStatistics = async (searchDate) => {
   };
   const {
     data: { content },
-  } = await axios({
+  } = await Axios({
     url: url,
     method: "POST",
     data: params,
     headers: {
       Authorization:
-        "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjA1NjQ5MSwiaWF0IjoxNjY1OTcwMDkxfQ.Pp8UMHFB4q2H5YQm8mzwF1866VVqKK0tyUMN_SSPtNk",
+        "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjE0MzUxMywiaWF0IjoxNjY2MDU3MTEzfQ.0zzqRep0hDHw6PAU5DRFktRzNFaOweShPyyvQ9BjaP8",
     },
   });
   return content;
 };
 
+// Calendar data
+// 대시 보드 하단 캘린더 공휴일 조회
 
-
-
-
-
-
+export const getHolidays = async (date) => {
+  const year = format(date, "yyyy");
+  const month = format(date, "MM");
+  const paramString = `solYear=${year}&solMonth=${month}&ServiceKey=${process.env.NEXT_PUBLIC_OPEN_API_KEY}&_type=json`;
+  const url = `http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getHoliDeInfo?${paramString}`;
+  const {
+    data: {
+      response: {
+        body: {
+          items: { item },
+        },
+      },
+    },
+  } = await Axios.create().get(url);
+  return item;
+};
 
 // 데이터를 fetch로 가지고 올때의 방법인데..
 // const query = Object.keys(params)

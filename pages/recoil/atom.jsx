@@ -1,12 +1,19 @@
 import { atom } from "recoil";
 
-const clientDashboard = atom({
-  key: "clientDashboard",
+const clientDashBoard = atom({
+  key: "clientDashBoard",
   default: {
     referenceDate: "",
     totalPayment: 0,
     expectedDepositAmount: 0, // 입금 예정 정산액
     depositAmount: 0, // 입금 완료 정산액
+    numOfPayment: 0,
+    numOfPaymentCancel: 0,
+    pgFee: 0,
+    salesAmount: 0,
+    sumOfPayment: 0,
+    sumOfPaymentCancel: 0,
+    todayDepositAmount: 0,
     isHoliday: false,
     isComplete: false,
     isCurrentMonth: false,
@@ -14,4 +21,4 @@ const clientDashboard = atom({
   },
 });
 
-export default clientDashboard
+export default clientDashBoard;

@@ -1,7 +1,7 @@
 import { Grid, Skeleton, Typography } from "@mui/material";
 import { blue, grey, red, teal } from "@mui/material/colors";
 import { useSetRecoilState } from "recoil";
-import clientDashboard from "../../pages/recoil/atom";
+import clientDashBoard from "../../pages/recoil/atom";
 import { addCommas } from "../../pages/libs/Comma";
 import { parse, format } from "date-fns";
 parse;
@@ -18,9 +18,9 @@ export const CalendarBody = ({ isLoading, data }) => {
   ];
 
   // modal
-  const setSelectedCell = useSetRecoilState(clientDashboard);
-  const cellClickHandler = () => {
-    setSelectedCell({ ...Date, isOpen: true });
+  const setSelectedCell = useSetRecoilState(clientDashBoard);
+  const cellClickHandler = (data) => {
+    setSelectedCell({ ...data, isOpen: true });
   };
 
   return (

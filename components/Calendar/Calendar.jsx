@@ -1,4 +1,4 @@
-import { addMonths, isSameMonth, subMonths, parse} from "date-fns";
+import { addMonths, isSameMonth, subMonths, parse } from "date-fns";
 import { CalendarHeader } from "./CalendarHeader";
 import { CalendarBody } from "./CalendarBody";
 import { useQuery } from "@tanstack/react-query";
@@ -7,6 +7,7 @@ import { getDailyStatistics, getHolidays } from "../../pages/api";
 import { useEffect } from "react";
 import format from "date-fns/format";
 import { useState } from "react";
+import CalendarModal from "./CalendarModal";
 
 export const Calendar = ({ currentMonth, setCurrentMonth }) => {
   const [cellDatas, setCellDatas] = useState();
@@ -40,7 +41,7 @@ export const Calendar = ({ currentMonth, setCurrentMonth }) => {
   );
 
   useEffect(() => {
-    let holidays;
+    let holidays = [];
     if (Array.isArray(holidayData)) {
       holidays = holidayData.map((holiday) => {
         const parsedDate = parse(holiday.locdate, "yyyyMMdd", new Date());
@@ -99,6 +100,7 @@ export const Calendar = ({ currentMonth, setCurrentMonth }) => {
           isLoading={isLoading && isLoadingForHoliday}
           data={cellDatas}
         />
+        <CalendarModal />
       </Paper>
     </>
   );

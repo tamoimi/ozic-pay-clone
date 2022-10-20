@@ -19,7 +19,7 @@ export const getTodayStatistics = async (searchDate) => {
     data: params,
     headers: {
       Authorization:
-        "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjE0MzUxMywiaWF0IjoxNjY2MDU3MTEzfQ.0zzqRep0hDHw6PAU5DRFktRzNFaOweShPyyvQ9BjaP8",
+        "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjIzMjE1NSwiaWF0IjoxNjY2MTQ1NzU1fQ.dntEKdSipk5_kBOkJtzRJ953ajOnV_u_06PS8Lmugu4",
     },
   });
   console.log("조회 결과 백단", content);
@@ -42,9 +42,10 @@ export const getDailyStatistics = async (searchDate) => {
     data: params,
     headers: {
       Authorization:
-        "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjE0MzUxMywiaWF0IjoxNjY2MDU3MTEzfQ.0zzqRep0hDHw6PAU5DRFktRzNFaOweShPyyvQ9BjaP8",
+        "eyJhbGciOiJIUzI1NiJ9.eyJpZHgiOjEsImF1dGhvcml0eSI6IkFETUlOIiwiaXNVc2UiOnRydWUsImV4cCI6MTY2NjIzMjE1NSwiaWF0IjoxNjY2MTQ1NzU1fQ.dntEKdSipk5_kBOkJtzRJ953ajOnV_u_06PS8Lmugu4",
     },
   });
+  console.log("조회 결과 데일리", content);
   return content;
 };
 
